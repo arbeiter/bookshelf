@@ -15,6 +15,12 @@ class App extends Component {
 	books: []
   }
 
+  componentDidMount() {
+	  BooksAPI.getAll().then((books) => {
+		  this.setState( {books} );
+	  });
+  }
+
   render() {
     return (
 		<Router>
