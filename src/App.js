@@ -26,7 +26,8 @@ class App extends Component {
 		<Router>
 		  <div>
 		   <Route exact path='/' render={() => (
-			<BookShelf />
+			<BookShelf
+				books={this.state.books}/>
 			)}/>
 		   <Route path='/search' component={SearchBook}/>
           </div>
