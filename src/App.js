@@ -29,7 +29,10 @@ class App extends Component {
 			<BookShelf
 				books={this.state.books}/>
 			)}/>
-		   <Route path='/search' component={SearchBook}/>
+		   <Route path='/search' render={() => (
+			<SearchBook
+				books={this.state.books}/>
+			)}/>
           </div>
 		</Router>
     );

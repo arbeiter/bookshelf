@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 
 class SearchBook extends Component {
+  state = {
+	  query: ""
+  }
+
+  updateQuery(value){
+	this.setState({ query: value.trim()});
+  }
+
   render() {
-	console.log("Kaush");
+	const { books } = this.props;
     return (
-      <div>Search Book!</div>
+			<input
+				 type="text"
+				 value={this.state.query}
+				 onChange={event => this.updateQuery(event.target.value)}
+			 >
+			</input>
     )
   }
 }

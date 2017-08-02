@@ -8,7 +8,6 @@ class BookShelf extends Component {
 			<ul>{book.title}</ul>
 		</li>
 	});
-	console.log(listMap);
 	if (books!==[]){
 		return (
 			<div>
