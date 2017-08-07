@@ -19,7 +19,8 @@ class SearchBook extends Component {
   }
 
   render() {
-	const { books } = this.props;
+
+    const { books } = this.props;
     var filtered_books = this.filterBooks(books, this.state.query);
     const listMap = filtered_books.map((book, index) => {
 					   return <li key={book.id}>
