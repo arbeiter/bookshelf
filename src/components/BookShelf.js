@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Book from './Book.js'
+import Shelfer from './Shelfer.js'
 
 class BookShelf extends Component {
   shelveBooks(books, shelf){
-
         var bookShelf = books.filter(function(el) {
           return (el.shelf === shelf);
         });
@@ -22,13 +22,15 @@ class BookShelf extends Component {
     if (books!==[])
     {
                 return (
-                        <div>
-                                        Currently Reading:
+                        <div className="list-books-content">
+                          Currently Reading
+                          <div className="bookshelf-books">
                                         {currentlyReadingBooks}
                                         To Read:
                                         {toReadBooks}
                                         Read:
                                         {readBooks}
+                        </div>
                         </div>
                 )
      }

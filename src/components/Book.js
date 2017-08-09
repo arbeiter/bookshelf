@@ -7,20 +7,19 @@ class Book extends Component {
    const imgTag = book["imageLinks"]["thumbnail"];
    const authors = book.authors.join(",");
    return (
-           <div className="list-books-content">
-                    <div className="bookshelf">
-                      <div className="book-top">
-                                <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${imgTag})` }}>
-                               </div>
-                      </div>
-                       <div className="book-title">
-                         {book.title}
+        <div className="book">
+              <div className="book-top">
+                        <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${imgTag})` }}>
                        </div>
-                       <div className="book-authors">
-                         {authors}
-                       </div>
-                   </div>
-           </div>
+              </div>
+
+              <div className="book-title">
+                 {book.title}
+               </div>
+               <div className="book-authors">
+                 {authors}
+               </div>
+        </div>
     );
   }
 }
