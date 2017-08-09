@@ -18,15 +18,15 @@ class Shelfer extends Component {
             <div className="list-books-content">
               <div>
                 <div className="bookshelf">
-                  <h2 className="bookshelf-title">Currently Reading</h2>
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
-                        <li>
-                          {this.shelveBooks(books, category)}
-                        </li>
-                    </ol>
-                  </div>
-                 </h2>
+                         <h2 className="bookshelf-title">Currently Reading</h2>
+                          <div className="bookshelf-books">
+                            <ol className="books-grid">
+                                <li>
+                                  {this.shelveBooks(books, category)}
+                                </li>
+                            </ol>
+                          </div>
+                        </h2>
                 </div>
                </div>
               </div>
