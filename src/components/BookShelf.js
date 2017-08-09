@@ -21,18 +21,16 @@ class BookShelf extends Component {
 
     if (books!==[])
     {
-                return (
-                        <div className="list-books-content">
-                          Currently Reading
-                          <div className="bookshelf-books">
-                                        {currentlyReadingBooks}
-                                        To Read:
-                                        {toReadBooks}
-                                        Read:
-                                        {readBooks}
-                        </div>
-                        </div>
-                )
+        return (
+                <div className="list-books-content">
+                  Currently Reading
+                  <div className="bookshelf-books">
+                    <Shelfer books={"read", books}/>
+                    <Shelfer books={"wantToRead", books}/>
+                    <Shelfer books={"currentlyReading", books}/>
+                  </div>
+                </div>
+        )
      }
      return (<div>No books to read</div>);
   }
