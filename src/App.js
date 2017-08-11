@@ -21,17 +21,26 @@ class App extends Component {
 	  });
   }
 
+  modify(id, shelf) {
+          book = BooksAPI.get(id);
+          BooksAPI.update(book, shelf).then((books) => {
+		  this.setState( {books} );
+          });
+  }
+
   render() {
     return (
 		<Router>
 		  <div>
 		   <Route exact path='/' render={() => (
 			<BookShelf
-				books={this.state.books}/>
+				books={this.state.books}
+                                />
 			)}/>
 		   <Route path='/search' render={() => (
 			<SearchBook
-				books={this.state.books}/>
+				books={this.state.books}
+                                />
 			)}/>
                   </div>
 		</Router>
