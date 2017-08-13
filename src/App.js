@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   modify(id, shelf) {
-          book = BooksAPI.get(id);
+          var book = BooksAPI.get(id);
           BooksAPI.update(book, shelf).then((books) => {
 		  this.setState( {books} );
           });

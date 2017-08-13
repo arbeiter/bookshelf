@@ -23,11 +23,10 @@ class BookShelf extends Component {
     {
         return (
                 <div className="list-books-content">
-                  Currently Reading
                   <div className="bookshelf-books">
-                    <Shelfer books={"read", books}/>
-                    <Shelfer books={"wantToRead", books}/>
-                    <Shelfer books={"currentlyReading", books}/>
+                    <Shelfer category="read" books={books}/>
+                    <Shelfer category="wantToRead" books={books}/>
+                    <Shelfer category="currentlyReading" books={books}/>
                   </div>
                 </div>
         )
