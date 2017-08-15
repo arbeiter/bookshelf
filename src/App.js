@@ -11,21 +11,32 @@ import SearchBook from './components/SearchBook.js'
 
 class App extends Component {
 
-  state = {
-	books: []
+  constructor(props) {
+        super(props);
+        this.state = { books: [] };
+        this.modify = this.modify.bind(this);
   }
 
   componentDidMount() {
 	  BooksAPI.getAll().then((books) => {
 		  this.setState( {books} );
 	  });
+
   }
 
   modify(id, shelf) {
-          var book = BooksAPI.get(id);
-          BooksAPI.update(book, shelf).then((books) => {
-		  this.setState( {books} );
+          var book_to_modify = "";
+          console.log(this.state);
+          console.log("Before");
+          var book = BooksAPI.get(id).then((book) => {
+                  BooksAPI.update(book, shelf).then((books) => {
+                    console.log(books);
+                    console.log("After");
+                  });
           });
+	  BooksAPI.getAll().then((books) => {
+		  this.setState( {books} );
+	  });
   }
 
   render() {
@@ -41,6 +52,7 @@ class App extends Component {
 		   <Route path='/search' render={() => (
 			<SearchBook
 				books={this.state.books}
+                                updateShelf={this.modify}
                                 />
 			)}/>
                   </div>
