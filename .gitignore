@@ -16,6 +16,7 @@
 .env.test.local
 .env.production.local
 .swo
+*.swp
 .swp
 <<<<<<< Updated upstream
 =======
