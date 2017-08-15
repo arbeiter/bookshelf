@@ -2,14 +2,30 @@ import React, { Component } from 'react';
 
 class Book extends Component {
 
+  selectEventHandler(book, updateShelfFunc, event) {
+        var shelf = event.target.value;
+        var bookId = book.id;
+        updateShelfFunc(bookId, shelf);
+  }
+
   render() {
-   const { book } = this.props;
+   const { book, updateShelf } = this.props;
    const imgTag = book["imageLinks"]["thumbnail"];
    const authors = book.authors.join(",");
+
    return (
-        <div className="book">
+        <div className="book" key={book.id}>
               <div className="book-top">
                         <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${imgTag})` }}>
+                               <div className="book-shelf-changer" >
+                                 <select value={book.shelf}
+                                         onChange={(e) => this.selectEventHandler(book, updateShelf, e)}
+                                 >
+                                   <option value="currentlyReading">Currently Reading</option>
+                                   <option value="wantToRead">Want to Read</option>
+                                   <option value="read">Read</option>
+                                 </select>
+                               </div>
                        </div>
               </div>
 
