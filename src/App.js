@@ -30,13 +30,11 @@ class App extends Component {
           console.log("Before");
           var book = BooksAPI.get(id).then((book) => {
                   BooksAPI.update(book, shelf).then((books) => {
-                    console.log(books);
-                    console.log("After");
+                          BooksAPI.getAll().then((books) => {
+                                  this.setState( {books} );
+                          });
                   });
           });
-	  BooksAPI.getAll().then((books) => {
-		  this.setState( {books} );
-	  });
   }
 
   render() {
