@@ -40,26 +40,25 @@ class App extends Component {
   render() {
     return (
 		<Router>
-		  <div>
-		   <Route exact path='/' render={() => (
-			<BookShelf
-				books={this.state.books}
-                                updateShelf={this.modify}
-                                />
-			)}/>
-		   <Route path='/search' render={() => (
-			<SearchBook
-				books={this.state.books}
-                                updateShelf={this.modify}
-                                />
-			)}/>
+                  <div>
+                           <Route exact path='/' render={() => (
+                                <BookShelf
+                                        books={this.state.books}
+                                        updateShelf={this.modify}
+                                        />
+                                )}/>
+                           <Route path='/search' render={() => (
+                                <SearchBook
+                                        books={this.state.books}
+                                        updateShelf={this.modify}
+                                        />
+                                )}/>
 
-                  <div className="open-search">
-                   <li><Link to="/search"></Link></li>
-                 </div>
-          </div>
-
-        </Router>
+                          <div className="open-search">
+                           <li><Link to="/search"></Link></li>
+                         </div>
+                  </div>
+                 </Router>
 );
 }
 }
