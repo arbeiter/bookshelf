@@ -40,7 +40,7 @@ class App extends Component {
   render() {
     return (
 		<Router>
-                  <div>
+                  <div className="app">
                            <Route exact path='/' render={() => (
                                 <BookShelf
                                         books={this.state.books}

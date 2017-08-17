@@ -27,15 +27,18 @@ class SearchBook extends Component {
                              updateShelf={updateShelf}/>
         });
         return (
-			<div>
+			<div className="search-books">
 				<input
 					 type="text"
+                                         placeholder="Search by title or author"
 					 value={this.state.query}
 					 onChange={event => this.updateQuery(event.target.value)}
 				 >
 				</input>
-				<div>
-				  {listMap}
+				<div className="search-book-results">
+                                  <div className="books-grid">
+                                    {listMap}
+                                  </div>
 				</div>
 			</div>
     )
