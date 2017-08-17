@@ -53,10 +53,15 @@ class App extends Component {
                                 updateShelf={this.modify}
                                 />
 			)}/>
-                  </div>
-		</Router>
-    );
-  }
+
+                  <div className="open-search">
+                   <li><Link to="/search"></Link></li>
+                 </div>
+          </div>
+
+        </Router>
+);
+}
 }
 
 export default App;
