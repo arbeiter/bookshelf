@@ -8,7 +8,8 @@ class Shelfer extends Component {
         });
         const htmlBooks = bookShelf.map((book, index) => {
                 return <Book book={book}
-                             updateShelf={updateShelf}/>
+                             updateShelf={updateShelf}
+                        />
         });
         return htmlBooks;
   }

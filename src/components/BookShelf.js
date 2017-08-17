@@ -13,7 +13,7 @@ class BookShelf extends Component {
                   <div className="bookshelf-books">
                     <Shelfer category="read"
                              books={books}
-                             updateShelf={updateShelf}/>
+                             updateShelf={updateShelf}
                     />
                     <Shelfer category="wantToRead"
                              books={books}
