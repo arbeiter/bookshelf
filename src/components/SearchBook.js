@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import escapeRegExp from 'escape-string-regexp'
+import Book from './Book.js'
 
 class SearchBook extends Component {
   state = {
@@ -19,14 +20,13 @@ class SearchBook extends Component {
   }
 
   render() {
-    const { books } = this.props;
+    const { books, updateShelf } = this.props;
     var filtered_books = this.filterBooks(books, this.state.query);
-    const listMap = filtered_books.map((book, index) => {
-					   return <li key={book.id}>
-					     <ul>{book.title}</ul>
-					   </li>
-		                        });
-    return (
+        const listMap = filtered_books.map((book, index) => {
+                return <Book book={book}
+                             updateShelf={updateShelf}/>
+        });
+        return (
 			<div>
 				<input
 					 type="text"
