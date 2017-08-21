@@ -11,7 +11,10 @@ class Book extends Component {
   render() {
    const { book, updateShelf } = this.props;
    const imgTag = book["imageLinks"]["thumbnail"];
-   const authors = book.authors.join(",");
+   let authors = [];
+   if(book.authors){
+        authors = book.authors.join(",");
+   }
 
    return (
         <div className="book" key={book.id}>

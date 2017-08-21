@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import * as BooksAPI from './BooksAPI.js';
 import './App.css';
@@ -26,8 +26,6 @@ class App extends Component {
 
   modify(id, shelf) {
           var book_to_modify = "";
-          console.log(this.state);
-          console.log("Before");
           var book = BooksAPI.get(id).then((book) => {
                   BooksAPI.update(book, shelf).then((books) => {
                           BooksAPI.getAll().then((books) => {
