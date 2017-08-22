@@ -11,7 +11,7 @@ class SearchBook extends Component {
 
 
   updateQuery(value){
-	this.setState({ query: value.trim()});
+	this.setState({ query: value});
   }
 
   filterBooks(query, updateShelf){
@@ -27,6 +27,9 @@ class SearchBook extends Component {
                                                      updateShelf={updateShelf}/>
                         });
                         this.setState({ searchedBooks: listMap});
+                }
+                else{
+                        this.setState({ searchedBooks: [] });
                 }
         });
   }
