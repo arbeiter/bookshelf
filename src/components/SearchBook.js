@@ -28,7 +28,7 @@ class SearchBook extends Component {
                         });
                         this.setState({ searchedBooks: listMap});
                 }
-                else{
+                else {
                         this.setState({ searchedBooks: [] });
                 }
         });
