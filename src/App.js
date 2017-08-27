@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI.js'
 import './App.css'
 
-import logo from './logo.svg'
-
 import BookShelf from './components/BookShelf.js'
 import SearchBook from './components/SearchBook.js'
 
