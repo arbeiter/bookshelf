@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Book from './Book.js'
+import { Link } from 'react-router-dom'
 import Shelfer from './Shelfer.js'
 
 class BookShelf extends Component {
@@ -21,6 +22,9 @@ class BookShelf extends Component {
               books={books}
               updateShelf={updateShelf}
             />
+            <div className="open-search">
+                <li><Link to="/search"></Link></li>
+            </div>
           </div>
         </div>
       )

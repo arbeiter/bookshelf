@@ -47,10 +47,6 @@ class App extends Component {
               updateShelf={this.modify}
             />
           )}/>
-
-          <div className="open-search">
-            <li><Link to="/search"></Link></li>
-          </div>
         </div>
       </Router>
     )

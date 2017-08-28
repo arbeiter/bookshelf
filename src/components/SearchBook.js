@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import escapeRegExp from 'escape-string-regexp'
 import Book from './Book.js'
 import * as BooksAPI from '../BooksAPI.js';
+import { Link } from 'react-router-dom'
 
 class SearchBook extends Component {
   state = {
@@ -50,6 +51,9 @@ class SearchBook extends Component {
                   <div className="books-grid">
                         {this.state.searchedBooks}
                   </div>
+                </div>
+                <div className="open-search">
+                  <li><Link to="/"></Link></li>
                 </div>
         </div>
     )
