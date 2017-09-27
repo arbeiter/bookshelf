@@ -20,15 +20,20 @@ class App extends Component {
 	  })
   }
 
-  modify (id, shelf) {
+  modify(id, shelf) {
     var book_to_modify = ''
+    // Find book in shelves and update locally
     var book = BooksAPI.get(id).then((book) => {
-      BooksAPI.update(book, shelf).then((books) => {
-        BooksAPI.getAll().then((books) => {
-          this.setState({books})
-        })
-      })
+      BooksAPI.update(book, shelf);
     })
+
+    var stateCopy = Object.assign({}, this.state);
+    for(var obj in this.state.books){
+        if(this.state.books[obj].id == id){
+          this.state.books[obj].shelf = shelf;
+        }
+    }
+    this.setState({stateCopy});
   }
 
   render () {
