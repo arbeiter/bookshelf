@@ -29,7 +29,9 @@ class App extends Component {
     const books = this.state.books;
     BooksAPI.update(temper, shelf).then(()=> {
             if(matchingBook.length==0){
-                  this.setState({books: books.concat(temper)});
+                  BooksAPI.getAll().then((books) => {
+                        this.setState({books})
+                  })
             }
     });
 
