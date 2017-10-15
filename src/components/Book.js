@@ -27,7 +27,6 @@ class Book extends Component {
     const { book, updateShelf } = this.props
     var imgTag = this.getIcon(book)
     var authors = this.getAuthors(book)
-
     return (
       <div className="book" key={book.id}>
         <div className="book-top">

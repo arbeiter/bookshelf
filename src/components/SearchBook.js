@@ -22,14 +22,16 @@ class SearchBook extends Component {
 
         var retVal = [];
         retVal = BooksAPI.search(query, 100).then((books) => {
-
                 if(books) {
                         if(!books.error){
-                                var listMap = books.map((book) => {
-                                                return <Book book={book}
+                                var listMap = books.map((book, i) => {
+                                                return <Book key={i} book={book}
                                                              updateShelf={updateShelf}/>
                                 });
                                 this.setState({ searchedBooks: listMap});
+                        }
+                        else{
+                          this.setState({ searchedBooks: [] });
                         }
                 }
                 else {
