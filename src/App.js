@@ -20,38 +20,28 @@ class App extends Component {
 	  })
   }
 
-  modify(id, shelf) {
-    var book_to_modify = ''
-    var stateCopy = Object.assign({}, this.state);
-
-    // Find book in shelves and update server
-    var book = BooksAPI.get(id).then((book) => {
-      BooksAPI.update(book, shelf);
-    })
-
-    // Update local state
-
-    //Find book in state
-    var matchingBook = stateCopy.books.filter(function(book) {
-        return (book.id === id);
+  modify(temper, shelf) {
+    //Find book to modify
+    var matchingBook = this.state.books.filter(function(book) {
+        return (book.id === temper.id);
+    });
+    // Set state
+    const books = this.state.books;
+    BooksAPI.update(temper, shelf).then(()=> {
+            if(matchingBook.length==0){
+                  this.setState({books: books.concat(temper)});
+            }
     });
 
-    console.log(matchingBook);
-    //If book not in state, add to state copy
-    //Add to stateCopy if present
+    var stateCopy = Object.assign({}, this.state);
     if(matchingBook!==[] && matchingBook!=""){
             for(var obj in stateCopy.books){
-                if(stateCopy.books[obj].id == id){
+                if(stateCopy.books[obj].id == temper.id){
                   stateCopy.books[obj].shelf = shelf;
                 }
             }
             this.setState({stateCopy});
-    }
-    else {
-          var bookToAdd = BooksAPI.get(id).then((book) => {
-            stateCopy.books.concat(book);
-            this.setState({stateCopy});
-          });
+            return;
     }
   }
 
@@ -62,13 +52,13 @@ class App extends Component {
           <Route exact path='/' render={() => (
             <BookShelf
               books={this.state.books}
-              updateShelf={this.modify}
+              updateShelf={this.modify.bind(this)}
             />
           )}/>
           <Route path='/search' render={() => (
             <SearchBook
               books={this.state.books}
-              updateShelf={this.modify}
+              updateShelf={this.modify.bind(this)}
             />
           )}/>
         </div>

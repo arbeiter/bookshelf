@@ -5,7 +5,7 @@ class Book extends Component {
   selectEventHandler (book, updateShelfFunc, event) {
     var shelf = event.target.value
     var bookId = book.id
-    updateShelfFunc(bookId, shelf)
+    updateShelfFunc(book, shelf)
   }
 
   getAuthors (book) {
