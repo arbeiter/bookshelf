@@ -35,6 +35,7 @@ class Book extends Component {
               <select value={book.shelf}
                 onChange={(e) => this.selectEventHandler(book, updateShelf, e)}
               >
+                <option value="">-</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>

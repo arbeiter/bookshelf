@@ -21,6 +21,9 @@ class App extends Component {
   }
 
   modify(temper, shelf) {
+    if(shelf == ''){
+            return;
+    }
     //Find book to modify
     var matchingBook = this.state.books.filter(function(book) {
         return (book.id === temper.id);
