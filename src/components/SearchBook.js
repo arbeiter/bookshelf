@@ -13,6 +13,7 @@ class SearchBook extends Component {
 
   updateQuery(value){
 	this.setState({ query: value});
+        this.filterBooks(value, this.props.updateShelf);
   }
 
   filterBooks(query, updateShelf){
@@ -41,8 +42,8 @@ class SearchBook extends Component {
   }
 
   render() {
+    //const listMap = this.filterBooks(this.state.query, updateShelf);
     const { books, updateShelf } = this.props;
-    const listMap = this.filterBooks(this.state.query, updateShelf);
     return (
         <div className="search-books">
                 <input
