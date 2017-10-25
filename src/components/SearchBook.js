@@ -10,7 +10,6 @@ class SearchBook extends Component {
           searchedBooks: []
   }
 
-
   updateQuery(value){
 	this.setState({ query: value});
         this.filterBooks(value, this.props.updateShelf);
