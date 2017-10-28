@@ -20,14 +20,12 @@ class SearchBook extends Component {
                 return [];
         }
 
+        var cached_books = this.props.books;
         var retVal = [];
         retVal = BooksAPI.search(query, 100).then((books) => {
                 if(books) {
                         if(!books.error){
-                                var listMap = books.map((book, i) => {
-                                                return <Book key={i} book={book}
-                                                             updateShelf={updateShelf}/>
-                                });
+                                var listMap = this.addBooks(books);
                                 this.setState({ searchedBooks: listMap});
                         }
                         else{
@@ -40,8 +38,28 @@ class SearchBook extends Component {
         });
   }
 
+  addBooks(fetchedBooks) {
+        var bookCache = this.props.books;
+        var listMap = fetchedBooks.map((book, i) => {
+                //check whether book in bookCache
+                var matchedBook = this.props.books.find(x => x.id = book.id);
+                if(matchedBook && matchedBook.shelf){
+                        return <Book key={i} book = {book}
+                                shelf={matchedBook.shelf}
+                                updateShelf={this.props.updateShelf}/>
+                }
+                else{
+                        return <Book key={i} book={book}
+                                     updateShelf={this.props.updateShelf}/>
+                }
+                //if included, add shelf to Book
+
+                //else do not add shelf to book
+        });
+        return listMap;
+  }
+
   render() {
-    //const listMap = this.filterBooks(this.state.query, updateShelf);
     const { books, updateShelf } = this.props;
     return (
         <div className="search-books">
